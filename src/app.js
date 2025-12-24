@@ -9,6 +9,6 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
 });
 
-app.use("/api/events", eventRoutes);
+app.use("/v1/events", eventRoutes);
 
 module.exports = app;
