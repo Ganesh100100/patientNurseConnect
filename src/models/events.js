@@ -1,34 +1,15 @@
 const mongoose = require("mongoose");
 
-const eventSchema = new mongoose.Schema(
+const EventSchema = new mongoose.Schema(
   {
-    deviceId: {
-      type: String,
-      required: true,
-      index: true
-    },
-    patientId: {
-      type: String,
-      required: true,
-      index: true
-    },
-    eventType: {
-      type: String,
-      required: true
-    },
-    payload: {
-      type: Object,
-      required: true
-    },
-    actionBy: {
-      type: String,
-      enum: ["patient", "nurse", "system"],
-      required: true
-    }
+    deviceId: String,
+    patientId: String,
+    eventType: String,
+    payload: Object,
+    actionBy: String
   },
-  {
-    timestamps: true
-  }
+  { timestamps: false }
 );
 
-module.exports = mongoose.model("Event", eventSchema);
+module.exports =
+  mongoose.models.Event || mongoose.model("Event", EventSchema);
