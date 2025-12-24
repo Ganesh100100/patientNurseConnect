@@ -1,5 +1,5 @@
-const connectDB = require("../../lib/db");
-const Event = require("../models/event.model");
+const connectDB = require("../lib/db");
+const Event = require("../models/events");
 
 exports.createEvent = async (req, res) => {
   const { deviceId, patientId, eventType, payload, actionBy } = req.body;
